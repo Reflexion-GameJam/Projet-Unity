@@ -12,10 +12,22 @@ public class PlayerControler : MonoBehaviour
     public float PowerSpeed = 7.0f;
     public bool canJump = true;
 
+    [Header("Effect Particle"), Space(5)]
+    public GameObject ParticleWalk;
+
     private void Start()
     {
         // Si Rigidbody2D vide récupération auto
-        rb = this.gameObject.GetComponent<Rigidbody2D>();
+        if (rb == null)
+        {
+            rb = this.gameObject.GetComponent<Rigidbody2D>();
+        }
+        
+        // Si Particule Walk non assigné
+        if (ParticleWalk == null)
+        {
+            ParticleWalk = GameObject.Find("WalkEffectPlayer");
+        }
     }
 
     private void Update()
@@ -29,6 +41,16 @@ public class PlayerControler : MonoBehaviour
         else
         {
             PowerSpeed = 7.0f;
+        }
+
+        // Si le joueur bouge
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetButton("Horizontal"))
+        {
+            ParticleWalkUpdate(true);
+        }
+        else
+        {
+            ParticleWalkUpdate(false);
         }
     }
 
@@ -65,6 +87,19 @@ public class PlayerControler : MonoBehaviour
         else if (inputX < 0)
         {
             GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
+    // Détection si le joueur bouge la fonction est appelé
+    private void ParticleWalkUpdate(bool i)
+    {
+        if (i && canJump)
+        {
+            ParticleWalk.SetActive(true);
+        }
+        else
+        {
+            ParticleWalk.SetActive(false);
         }
     }
 
