@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plControl: {fileID: 0}
   offset: {x: 0, y: 2, z: -150}
+  Smooth: 2
 --- !u!81 &1395332722
 AudioListener:
   m_ObjectHideFlags: 0
@@ -651,6 +652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   PowerJump: 5
+  PowerSpeed: 7
+  canJump: 1
 --- !u!212 &2099935101
 SpriteRenderer:
   m_ObjectHideFlags: 0
