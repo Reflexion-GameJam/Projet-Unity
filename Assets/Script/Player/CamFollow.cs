@@ -7,6 +7,7 @@ public class CamFollow : MonoBehaviour
 {
     public PlayerControler plControl;
     public Vector3 offset;
+    public float Smooth;
     private void Start()
     {
         // Si le joueur n'est pas assigné
@@ -19,6 +20,6 @@ public class CamFollow : MonoBehaviour
     private void Update()
     {
         // La caméra suit le joueur avec la position de décalage spécifiée
-        transform.position = new Vector3 (plControl.transform.position.x + offset.x, plControl.transform.position.y + offset.y, offset.z);
+        this.transform.position = new Vector3 (Mathf.Lerp(this.transform.position.x, plControl.transform.position.x, Time.deltaTime*Smooth), Mathf.Lerp(this.transform.position.y, plControl.transform.position.y, Time.deltaTime*Smooth),offset.z);
     }
 }
