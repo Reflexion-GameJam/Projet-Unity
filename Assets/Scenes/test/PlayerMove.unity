@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plControl: {fileID: 0}
   offset: {x: 0, y: 2, z: -150}
+  Smooth: 0
 --- !u!1 &278023045
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ GameObject:
   - component: {fileID: 278023046}
   m_Layer: 0
   m_Name: Sol
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -431,6 +432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   PowerJump: 5
+  canJump: 1
 --- !u!50 &679809092
 Rigidbody2D:
   serializedVersion: 4
