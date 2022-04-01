@@ -35,6 +35,7 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         float dirX = Input.GetAxis("Horizontal");
+        FlipImage(dirX);
 
         // Déplacement du joueur
         rb.velocity = new Vector2(dirX * PowerSpeed, rb.velocity.y);
@@ -51,6 +52,19 @@ public class PlayerControler : MonoBehaviour
                 rb.AddForce(transform.up * PowerJump, ForceMode2D.Impulse);
                 canJump = false;
             }
+        }
+    }
+
+    // Fonction qui permet de faire tourner le sprite pour lui faire changer de direction
+    private void FlipImage(float inputX)
+    {
+        if (inputX > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (inputX < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
