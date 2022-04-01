@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Teleport
+  - Enemy
   layers:
   - Default
   - TransparentFX
