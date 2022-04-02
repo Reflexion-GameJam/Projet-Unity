@@ -127,7 +127,7 @@ MonoBehaviour:
   PowerMaxSpeed: 4
   CurrentSpeed: 2
   isAlterne: 0
-  ParticleWalk: {fileID: 0}
+  ParticleWalk: {fileID: 263237840152239848}
 --- !u!114 &3109870016392765551
 MonoBehaviour:
   m_ObjectHideFlags: 0

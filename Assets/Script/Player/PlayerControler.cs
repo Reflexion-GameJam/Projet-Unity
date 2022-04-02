@@ -17,9 +17,6 @@ public class PlayerControler : MonoBehaviour
     [Header("Effect Particle"), Space(5)]
     public GameObject ParticleWalk;
 
-    // Event pour déclencher un son de saut
-    public static event Action OnJump;
-
     private void Start()
     {
         // Si Rigidbody2D vide récupération auto
