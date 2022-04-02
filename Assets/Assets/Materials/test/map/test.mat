@@ -64,7 +64,7 @@ Material:
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Distortion: 0.18
+    - _Distortion: 0.01
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -75,7 +75,7 @@ Material:
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 0.47
+    - _Speed: 0.3
     - _SrcBlend: 1
     - _Stencil: 0
     - _StencilComp: 8
