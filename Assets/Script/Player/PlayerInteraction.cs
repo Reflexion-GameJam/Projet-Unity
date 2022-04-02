@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    // Référence d'un ennemi s'il est proche
     private GameObject enemy = null;
 
     public static event Action OnAttack;

@@ -59,16 +59,19 @@ public class AudioManager : MonoBehaviour
 
     void OnEnable()
     {
+        // On écoute les events pour déclencher les sons
         PlayerControler.OnJump += PlayJumpSound;
-        Teleporter.OnTeleport += PlayTeleportSound;
-        Enemy.OnLaugh += PlayLaughSound;
+        PlayerTeleport.OnTeleport += PlayTeleportSound;
         PlayerInteraction.OnAttack += PlayAttackSound;
+        Enemy.OnLaugh += PlayLaughSound;
     }
 
     void OnDisable()
     {
+        // On arrête d'écouter les events
         PlayerControler.OnJump -= PlayJumpSound;
-        Teleporter.OnTeleport -= PlayTeleportSound;
+        PlayerTeleport.OnTeleport -= PlayTeleportSound;
+        PlayerInteraction.OnAttack -= PlayAttackSound;
         Enemy.OnLaugh += PlayLaughSound;
     }
 
@@ -78,6 +81,8 @@ public class AudioManager : MonoBehaviour
             audioSource.clip = topMusic;
         else
             audioSource.clip = bottomMusic;
+
+        // Attendre la fin du son de téléportation
         audioSource.PlayDelayed(teleport.length);
     }
 
