@@ -10,6 +10,12 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
 
     #region AudioClips
+    [Header("Musiques"), Space(5)]
+
+    [SerializeField]
+    private AudioClip topMusic;
+    [SerializeField]
+    private AudioClip bottomMusic;
 
     [Header("Audio clips"), Space(5)]
 
@@ -53,17 +59,31 @@ public class AudioManager : MonoBehaviour
 
     void OnEnable()
     {
+        // On écoute les events pour déclencher les sons
         PlayerControler.OnJump += PlayJumpSound;
-        Teleporter.OnTeleport += PlayTeleportSound;
-        Enemy.OnLaugh += PlayLaughSound;
+        PlayerTeleport.OnTeleport += PlayTeleportSound;
         PlayerInteraction.OnAttack += PlayAttackSound;
+        Enemy.OnLaugh += PlayLaughSound;
     }
 
     void OnDisable()
     {
+        // On arrête d'écouter les events
         PlayerControler.OnJump -= PlayJumpSound;
-        Teleporter.OnTeleport -= PlayTeleportSound;
+        PlayerTeleport.OnTeleport -= PlayTeleportSound;
+        PlayerInteraction.OnAttack -= PlayAttackSound;
         Enemy.OnLaugh += PlayLaughSound;
+    }
+
+    private void ChangeWorldMusic()
+    {
+        if (PlayerTeleport.playerIsTop)
+            audioSource.clip = topMusic;
+        else
+            audioSource.clip = bottomMusic;
+
+        // Attendre la fin du son de téléportation
+        audioSource.PlayDelayed(teleport.length);
     }
 
     public void PlayJumpSound()
@@ -74,6 +94,7 @@ public class AudioManager : MonoBehaviour
     public void PlayTeleportSound()
     {
         audioSource.PlayOneShot(teleport);
+        ChangeWorldMusic();
     }
 
     public void PlayLaughSound()

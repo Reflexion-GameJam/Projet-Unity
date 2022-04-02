@@ -629,11 +629,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: fe3c83346cce0084696a87c545b01063, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -728,6 +728,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1268702546}
+  topMusic: {fileID: 8300000, guid: fe3c83346cce0084696a87c545b01063, type: 3}
+  bottomMusic: {fileID: 8300000, guid: d33c2795e92b8374180322f1055c79c7, type: 3}
   bunnyJump: {fileID: 8300000, guid: 4d57a21593a17274daa48fd26f671677, type: 3}
   bullyJump1: {fileID: 8300000, guid: 53b2d5aa494850642932305b168ab660, type: 3}
   bullyJump2: {fileID: 8300000, guid: 4e61a2ec56436c449b82fd4491bd15ba, type: 3}
