@@ -23,11 +23,11 @@ public class PlayerTeleport : MonoBehaviour
         if (!canTeleport)
             return;
 
-        // Déplacement + rotation du personnage
+        // DÃ©placement + rotation du personnage
         transform.position = linkedTeleporter.transform.position;
         transform.Rotate(new Vector3(180, 0, 0));
 
-        // Changement de la gravité
+        // Changement de la gravitÃ©
         rb.gravityScale = -rb.gravityScale;
 
         playerIsTop = !playerIsTop;

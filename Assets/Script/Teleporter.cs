@@ -14,6 +14,16 @@ public class Teleporter : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerTeleport>().Teleport(linkedTeleporter);
+            StartCoroutine(SyncAnimPlayer(collision.gameObject));
         }
+    }
+
+    // Lancement de l'animation de teleportation
+    private IEnumerator SyncAnimPlayer(GameObject player)
+    {
+        player.GetComponent<Animator>().SetBool("isTeleport", true);
+        yield return new WaitForSeconds(0.2f);
+        player.GetComponent<Animator>().SetBool("isTeleport", false);
+        yield break;
     }
 }

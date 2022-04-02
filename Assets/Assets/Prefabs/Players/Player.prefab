@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4272069840903254934}
   - component: {fileID: 263237840135988801}
   - component: {fileID: 263237840135988800}
+  - component: {fileID: 1097612043271010291}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d8711b92093285642849ee89bb690333, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +100,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b2649804a31456843b40f10dde1bd121, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28262dc124510024ca74536b45bdc305, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,6 +204,27 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.15702426}
   m_Size: {x: 1, y: 3.4573686}
   m_Direction: 0
+--- !u!114 &1097612043271010291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263237840135988805}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7cbead1778111847b6b2c3b4eaf62a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForceMaterial: {fileID: 0}
+  ActiveChange: 1
+  _Alpha: 1
+  Distortion: 0
+  _PosX: 0.5
+  _PosY: 0.5
+  _ColorX: {r: 1, g: 1, b: 1, a: 1}
+  ShaderChange: 0
+  ActiveUpdate: 1
 --- !u!1 &263237840152239848
 GameObject:
   m_ObjectHideFlags: 0
