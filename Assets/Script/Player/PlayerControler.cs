@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -87,11 +88,13 @@ public class PlayerControler : MonoBehaviour
     {
         if (inputX > 0)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            Quaternion target = quaternion.Euler(0.0f, 0.0f, 0.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
         }
         else if (inputX < 0)
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            Quaternion target = quaternion.Euler(0.0f, 3.15f, 0.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
         }
     }
 

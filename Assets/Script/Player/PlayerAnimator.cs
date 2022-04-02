@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(PlayerControler))]
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Animator plAnim;
@@ -21,7 +20,7 @@ public class PlayerAnimator : MonoBehaviour
         // Si PlayerControler non assigné
         if (plControl == null)
         {
-            plControl = this.gameObject.GetComponent<PlayerControler>();
+            plControl = this.gameObject.GetComponentInParent<PlayerControler>();
         }
     }
 
