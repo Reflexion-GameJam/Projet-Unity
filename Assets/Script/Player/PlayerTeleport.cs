@@ -8,6 +8,8 @@ public class PlayerTeleport : MonoBehaviour
 
     private bool canTeleport = true;
 
+    public static bool playerIsTop = true;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,6 +23,7 @@ public class PlayerTeleport : MonoBehaviour
         transform.Rotate(new Vector3(180, 0, 0));
         transform.position = linkedTeleporter.transform.position;
         rb.gravityScale = -rb.gravityScale;
+        playerIsTop = !playerIsTop;
         canTeleport = false;
         Invoke("CanTeleport", 1f);
     }

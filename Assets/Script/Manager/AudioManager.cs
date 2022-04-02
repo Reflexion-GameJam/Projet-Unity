@@ -10,6 +10,12 @@ public class AudioManager : MonoBehaviour
     private AudioSource audioSource;
 
     #region AudioClips
+    [Header("Musiques"), Space(5)]
+
+    [SerializeField]
+    private AudioClip topMusic;
+    [SerializeField]
+    private AudioClip bottomMusic;
 
     [Header("Audio clips"), Space(5)]
 
@@ -66,6 +72,15 @@ public class AudioManager : MonoBehaviour
         Enemy.OnLaugh += PlayLaughSound;
     }
 
+    private void ChangeWorldMusic()
+    {
+        if (PlayerTeleport.playerIsTop)
+            audioSource.clip = topMusic;
+        else
+            audioSource.clip = bottomMusic;
+        audioSource.PlayDelayed(teleport.length);
+    }
+
     public void PlayJumpSound()
     {
         audioSource.PlayOneShot(bunnyJump);
@@ -74,6 +89,7 @@ public class AudioManager : MonoBehaviour
     public void PlayTeleportSound()
     {
         audioSource.PlayOneShot(teleport);
+        ChangeWorldMusic();
     }
 
     public void PlayLaughSound()
