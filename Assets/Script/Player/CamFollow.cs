@@ -6,8 +6,9 @@ using UnityEngine;
 public class CamFollow : MonoBehaviour
 {
     public PlayerControler plControl;
-    public Vector3 offset;
-    public float Smooth;
+    public float offsetY;
+    public float smooth;
+
     private void Start()
     {
         // Si le joueur n'est pas assigné
@@ -15,11 +16,17 @@ public class CamFollow : MonoBehaviour
         {
             plControl = GameObject.FindWithTag("Player").GetComponent<PlayerControler>();
         }
+        PlayerTeleport.OnTeleport += SwitchOffsetY;
     }
 
     private void Update()
     {
         // La caméra suit le joueur avec la position de décalage spécifiée
-        this.transform.position = new Vector3 (Mathf.Lerp(this.transform.position.x, plControl.transform.position.x, Time.deltaTime*Smooth), Mathf.Lerp(this.transform.position.y, plControl.transform.position.y, Time.deltaTime*Smooth),offset.z);
+        this.transform.position = new Vector3 (Mathf.Lerp(this.transform.position.x, plControl.transform.position.x, Time.deltaTime*smooth), Mathf.Lerp(this.transform.position.y, plControl.transform.position.y + offsetY, Time.deltaTime*smooth), transform.position.z);
+    }
+
+    private void SwitchOffsetY()
+    {
+        offsetY = -offsetY;
     }
 }
