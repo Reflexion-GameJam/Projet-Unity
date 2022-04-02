@@ -12,6 +12,7 @@ public class PlayerControler : MonoBehaviour
     public float PowerJump = 1.0f;
     public float PowerSpeed = 7.0f;
     public bool canJump = true;
+    public bool isAlterne = false;
 
     [Header("Effect Particle"), Space(5)]
     public GameObject ParticleWalk;
@@ -56,6 +57,9 @@ public class PlayerControler : MonoBehaviour
         {
             ParticleWalkUpdate(false);
         }
+
+        // Détection si le joueur passe sur l'autre monde
+        isAlterne = rb.gravityScale == 1 ? false : true;
     }
 
     private void FixedUpdate()
@@ -75,7 +79,14 @@ public class PlayerControler : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                rb.AddForce(transform.up * PowerJump, ForceMode2D.Impulse);
+                if (!isAlterne)
+                {
+                    rb.AddForce(transform.up * PowerJump, ForceMode2D.Impulse);
+                }
+                else
+                {
+                    rb.AddForce(-transform.up * -PowerJump, ForceMode2D.Impulse);
+                }
                 canJump = false;
                 // Déclenchement de l'event pour le son
                 OnJump?.Invoke();
@@ -88,13 +99,29 @@ public class PlayerControler : MonoBehaviour
     {
         if (inputX > 0)
         {
-            Quaternion target = quaternion.Euler(0.0f, 0.0f, 0.0f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
+            if (!isAlterne)
+            {
+                Quaternion target = quaternion.Euler(0.0f, 0.0f, 0.0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
+            }
+            else
+            {
+                Quaternion target = quaternion.Euler(3.15f, 0.0f, 0.0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
+            }
         }
         else if (inputX < 0)
         {
-            Quaternion target = quaternion.Euler(0.0f, 3.15f, 0.0f);
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
+            if (!isAlterne)
+            {
+                Quaternion target = quaternion.Euler(0.0f, 3.15f, 0.0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
+            }
+            else
+            {
+                Quaternion target = quaternion.Euler(3.15f, 3.15f, 0.0f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
+            }
         }
     }
 
