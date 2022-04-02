@@ -19,6 +19,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("attack");
             AttackEnemy();
+            if (GameManager.Instance)
+                GameManager.Instance.EnemyKilled();
         }
     }
 
