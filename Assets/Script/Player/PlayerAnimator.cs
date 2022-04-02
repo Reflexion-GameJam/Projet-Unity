@@ -26,36 +26,14 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
-        // Si le joueur saute
-        if (plControl.canJump)
+        // Si le joueur ce déplace
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetButtonDown("Horizontal"))
         {
-            // Si le joueur ce déplace
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetButtonDown("Horizontal"))
-            {
-                plAnim.SetBool("isWalk", true);
-            }
-            else
-            {
-                plAnim.SetBool("isWalk", false);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Jump"))
-            {
-                plAnim.SetBool("isJump", true);
-            }
-            else
-            {
-                plAnim.SetBool("isJump", false);
-            }
-            
-            plAnim.SetBool("isFall", false);
+            plAnim.SetBool("isWalk", true);
         }
         else
         {
-            // Si le joueur ne touche pas le sol
             plAnim.SetBool("isWalk", false);
-            plAnim.SetBool("isJump", false);
-            plAnim.SetBool("isFall", true);
         }
     }
 }

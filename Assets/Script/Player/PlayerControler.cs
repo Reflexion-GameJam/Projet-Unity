@@ -9,9 +9,7 @@ public class PlayerControler : MonoBehaviour
     [Header("Basic Information Player"), Space(5)]
     [SerializeField] private Rigidbody2D rb;
 
-    public float PowerJump = 1.0f;
     public float PowerSpeed = 7.0f;
-    public bool canJump = true;
     public bool isAlterne = false;
 
     [Header("Effect Particle"), Space(5)]
@@ -37,7 +35,6 @@ public class PlayerControler : MonoBehaviour
 
     private void Update()
     {
-        ControlPlayer();
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -70,29 +67,7 @@ public class PlayerControler : MonoBehaviour
         // Déplacement du joueur
         rb.velocity = new Vector2(dirX * PowerSpeed, rb.velocity.y);
     }
-
-
-    public void ControlPlayer()
-    {
-        // Faire sauté le joueur
-        if (canJump)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (!isAlterne)
-                {
-                    rb.AddForce(transform.up * PowerJump, ForceMode2D.Impulse);
-                }
-                else
-                {
-                    rb.AddForce(-transform.up * -PowerJump, ForceMode2D.Impulse);
-                }
-                canJump = false;
-                // Déclenchement de l'event pour le son
-                OnJump?.Invoke();
-            }
-        }
-    }
+    
 
     // Fonction qui permet de faire tourner le sprite pour lui faire changer de direction
     private void FlipImage(float inputX)
@@ -128,7 +103,7 @@ public class PlayerControler : MonoBehaviour
     // Détection si le joueur bouge la fonction est appelé
     private void ParticleWalkUpdate(bool i)
     {
-        if (i && canJump)
+        if (i)
         {
             ParticleWalk.SetActive(true);
         }
@@ -143,16 +118,5 @@ public class PlayerControler : MonoBehaviour
         Gizmos.color = Color.red;
         Vector2 directionJump = new Vector2(0.0f, -2.0f);
         Gizmos.DrawRay(transform.position, directionJump);
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (!canJump)
-        {
-            if (!other.gameObject.CompareTag("Player"))
-            {
-                canJump = true;
-            }
-        }
     }
 }
