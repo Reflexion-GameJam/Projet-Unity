@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    public GameObject linkedTeleporter;
+    [SerializeField]
+    private GameObject linkedTeleporter;
+
+    public static event Action OnTeleport;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,6 +16,7 @@ public class Teleporter : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerTeleport>().Teleport(linkedTeleporter);
+            OnTeleport?.Invoke();
         }
     }
 }

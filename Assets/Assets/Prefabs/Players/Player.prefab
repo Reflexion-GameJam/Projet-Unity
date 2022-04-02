@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 263237840135988804}
   - component: {fileID: 263237840135988806}
   - component: {fileID: 263237840135988803}
+  - component: {fileID: 7344035596862469966}
+  - component: {fileID: 4272069840903254934}
   - component: {fileID: 263237840135988801}
   - component: {fileID: 263237840135988800}
   m_Layer: 0
@@ -139,6 +141,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plAnim: {fileID: 0}
   plControl: {fileID: 0}
+--- !u!114 &7344035596862469966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263237840135988805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c75589b42471044993832436804c9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4272069840903254934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263237840135988805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb11699fec8c844aad323a7b8e37d9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &263237840135988801
 Rigidbody2D:
   serializedVersion: 4
