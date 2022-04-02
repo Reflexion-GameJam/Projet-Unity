@@ -117,18 +117,6 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: isJump
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: isFall
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
   - m_Name: isTeleport
     m_Type: 4
     m_DefaultFloat: 0
@@ -276,7 +264,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b313d19e1ee0ae947aa7b2900d5cbb8a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 65ffa7d279004a842bdc84edd0a8c757, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

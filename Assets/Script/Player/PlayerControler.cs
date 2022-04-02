@@ -9,7 +9,9 @@ public class PlayerControler : MonoBehaviour
     [Header("Basic Information Player"), Space(5)]
     [SerializeField] private Rigidbody2D rb;
 
-    public float PowerSpeed = 7.0f;
+    public float PowerMinSpeed = 2.0f;
+    public float PowerMaxSpeed = 4.0f;
+    public float CurrentSpeed = 2.0f;
     public bool isAlterne = false;
 
     [Header("Effect Particle"), Space(5)]
@@ -38,11 +40,11 @@ public class PlayerControler : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            PowerSpeed = 9.0f;
+            CurrentSpeed = PowerMaxSpeed;
         }
         else
         {
-            PowerSpeed = 7.0f;
+            CurrentSpeed = PowerMinSpeed;
         }
 
         // Si le joueur bouge
@@ -65,7 +67,7 @@ public class PlayerControler : MonoBehaviour
         FlipImage(dirX);
 
         // Déplacement du joueur
-        rb.velocity = new Vector2(dirX * PowerSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(dirX * CurrentSpeed, rb.velocity.y);
     }
     
 
@@ -74,29 +76,11 @@ public class PlayerControler : MonoBehaviour
     {
         if (inputX > 0)
         {
-            if (!isAlterne)
-            {
-                Quaternion target = quaternion.Euler(0.0f, 0.0f, 0.0f);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
-            }
-            else
-            {
-                Quaternion target = quaternion.Euler(3.15f, 0.0f, 0.0f);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
-            }
+            GetComponent<SpriteRenderer>().flipX = false;
         }
         else if (inputX < 0)
         {
-            if (!isAlterne)
-            {
-                Quaternion target = quaternion.Euler(0.0f, 3.15f, 0.0f);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
-            }
-            else
-            {
-                Quaternion target = quaternion.Euler(3.15f, 3.15f, 0.0f);
-                transform.rotation = Quaternion.Slerp(transform.rotation, target, 2.0f);
-            }
+            GetComponent<SpriteRenderer>().flipX = true;
         }
     }
 
@@ -111,12 +95,5 @@ public class PlayerControler : MonoBehaviour
         {
             ParticleWalk.SetActive(false);
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Vector2 directionJump = new Vector2(0.0f, -2.0f);
-        Gizmos.DrawRay(transform.position, directionJump);
     }
 }
