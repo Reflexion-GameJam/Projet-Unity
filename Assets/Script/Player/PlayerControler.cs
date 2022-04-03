@@ -14,6 +14,8 @@ public class PlayerControler : MonoBehaviour
     public float CurrentSpeed = 2.0f;
     public bool isAlterne = false;
 
+    public static bool canMove;
+
     [Header("Effect Particle"), Space(5)]
     public GameObject ParticleWalk;
 
@@ -30,10 +32,16 @@ public class PlayerControler : MonoBehaviour
         {
             ParticleWalk = GameObject.Find("WalkEffectPlayer");
         }
+        canMove = true;
     }
 
     private void Update()
     {
+        if (!canMove)
+        {
+            ParticleWalkUpdate(false);
+            return;
+        }
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -45,7 +53,7 @@ public class PlayerControler : MonoBehaviour
         }
 
         // Si le joueur bouge
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetButton("Horizontal"))
+        if (Input.GetButton("Horizontal"))
         {
             ParticleWalkUpdate(true);
         }
@@ -60,6 +68,9 @@ public class PlayerControler : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove)
+            return;
+
         float dirX = Input.GetAxis("Horizontal");
         FlipImage(dirX);
 

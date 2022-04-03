@@ -415,6 +415,42 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 712.89, y: 75.682}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!21 &466421765
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &652441255
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,25 +760,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2054586649878760136, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.007
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760136, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8762
-      objectReference: {fileID: 0}
     - target: {fileID: 2054586649878760138, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760139, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
-      propertyPath: m_Size.x
-      value: 0.57733005
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760139, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
-      propertyPath: m_Size.y
-      value: 0.13276829
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2054586651052867336, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
       propertyPath: m_Name
@@ -758,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2054586651052867340, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2054586651052867340, guid: 2f70cc7096af0b04e8ee236756a10f01, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1177,6 +1197,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1097612043271010291, guid: 3f1a0ee39efaf724995d2e599d8ad92e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239713150197714030, guid: 3f1a0ee39efaf724995d2e599d8ad92e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 466421765}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f1a0ee39efaf724995d2e599d8ad92e, type: 3}
 --- !u!1 &1082803674
@@ -1718,26 +1746,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2054586649878760136, guid: 6dc00059b509b7d47b3bcec39ad090a1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760136, guid: 6dc00059b509b7d47b3bcec39ad090a1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.805
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760138, guid: 6dc00059b509b7d47b3bcec39ad090a1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760139, guid: 6dc00059b509b7d47b3bcec39ad090a1, type: 3}
-      propertyPath: m_Size.x
-      value: 0.76428044
-      objectReference: {fileID: 0}
-    - target: {fileID: 2054586649878760139, guid: 6dc00059b509b7d47b3bcec39ad090a1, type: 3}
-      propertyPath: m_Size.y
-      value: 0.19285285
-      objectReference: {fileID: 0}
     - target: {fileID: 2054586651052867336, guid: 6dc00059b509b7d47b3bcec39ad090a1, type: 3}
       propertyPath: m_Name
       value: Karen

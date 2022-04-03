@@ -15,12 +15,16 @@ public class PlayerInteraction : MonoBehaviour
         if (!enemy)
             return;
 
-        if (Input.GetKeyUp(KeyCode.E))
+        if (Input.GetButtonUp("Attack"))
         {
             Debug.Log("attack");
             AttackEnemy();
-            if (GameManager.Instance)
-                GameManager.Instance.EnemyKilled();
+            GameManager.Instance.EnemyAttacked();
+        }
+
+        if (Input.GetButtonUp("Hide"))
+        {
+            Debug.Log("hide");
         }
     }
 
@@ -37,6 +41,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("enemy found");
             enemy = collision.gameObject;
+            PlayerControler.canMove = false;
         }
     }
 
@@ -46,6 +51,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("enemy lost");
             enemy = null;
+            PlayerControler.canMove = true;
         }
     }
 }

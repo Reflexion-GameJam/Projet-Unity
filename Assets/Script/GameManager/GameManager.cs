@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // Si le joueur appuie sur "Echap"
-        if (Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("Cancel"))
+        if (Input.GetButtonUp("Cancel"))
         {
             if (isPaused)
                 Unpause();
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void EnemyKilled()
+    public void EnemyAttacked()
     {
         aggressiveness++;
         gamePanel.SetAggressiveness(aggressiveness);

@@ -26,8 +26,14 @@ public class PlayerAnimator : MonoBehaviour
 
     private void Update()
     {
+        if (!PlayerControler.canMove)
+        {
+            plAnim.SetBool("isWalk", false);
+            return;
+        }
+
         // Si le joueur ce déplace
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetButtonDown("Horizontal"))
+        if (Input.GetButton("Horizontal"))
         {
             plAnim.SetBool("isWalk", true);
         }
