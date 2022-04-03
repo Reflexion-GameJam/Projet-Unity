@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EndGamePanel : MonoBehaviour
 {
     [SerializeField]
-    private TMP_Text messageText;
+    private Image imageText;
 
-    public void SetMessage(string message)
+    public void SetMessage(Sprite message)
     {
-        messageText.text = message;
+        imageText.sprite = message;
     }
 
 }

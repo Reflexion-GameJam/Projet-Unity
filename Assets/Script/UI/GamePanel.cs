@@ -28,7 +28,7 @@ public class GamePanel : MonoBehaviour
         pausePanel.gameObject.SetActive(false);
     }
 
-    public void EndGame(string message)
+    public void EndGame(Sprite message)
     {
         endGamePanel.gameObject.SetActive(true);
         endGamePanel.SetMessage(message);

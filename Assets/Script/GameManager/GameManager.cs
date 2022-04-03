@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GamePanel gamePanel;
 
-    private int aggressiveness = 0;
+    public Sprite[] SpriteFin = {null,null,null};
+
+    [SerializeField] private int aggressiveness = 0;
     private bool isPaused;
 
     void Awake()
@@ -86,20 +88,17 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         Pause();
-        string message = "";
+        Sprite message = null;
         switch (aggressiveness)
         {
             case 0:
-                message = "Tu es un ange";
+                message = SpriteFin[0];
                 break;
-            case 1:
-                message = "Un accident ça arrive";
+            case 1 | 2:
+                message = SpriteFin[1];
                 break;
-            case 2:
-                message = "Une petite tendance à éclater les autres";
-                break;
-            case 3:
-                message = "Carrément un psychopathe";
+            default:
+                message = SpriteFin[2];
                 break;
         }
         gamePanel.EndGame(message);
