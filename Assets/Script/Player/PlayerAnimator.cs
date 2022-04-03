@@ -35,5 +35,14 @@ public class PlayerAnimator : MonoBehaviour
         {
             plAnim.SetBool("isWalk", false);
         }
+
+        if (plControl.isAlterne)
+        {
+            plAnim.SetBool("isAltern", true);
+        }
+        else
+        {
+            plAnim.SetBool("isAltern", false);
+        }
     }
 }

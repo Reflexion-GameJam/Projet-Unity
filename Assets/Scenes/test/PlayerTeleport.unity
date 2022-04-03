@@ -331,8 +331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plControl: {fileID: 0}
-  offset: {x: 0, y: 2, z: -150}
-  Smooth: 2
+  offsetY: 2
+  smooth: 2
 --- !u!81 &1395332722
 AudioListener:
   m_ObjectHideFlags: 0
@@ -498,6 +498,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5608283742363437965, guid: 66c2259a57d2c264dbb0dc45a3344e7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5608283742363437965, guid: 66c2259a57d2c264dbb0dc45a3344e7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.42
+      objectReference: {fileID: 0}
     - target: {fileID: 5608283742478258839, guid: 66c2259a57d2c264dbb0dc45a3344e7f, type: 3}
       propertyPath: m_Name
       value: Teleporter
