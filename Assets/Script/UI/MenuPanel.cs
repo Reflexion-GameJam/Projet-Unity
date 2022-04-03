@@ -26,4 +26,9 @@ public class MenuPanel : MonoBehaviour
         controls.SetActive(false);
         menu.SetActive(true);
     }
+
+    public void OnQuitBtnClick()
+    {
+        Application.Quit();
+    }
 }
