@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    // Référence d'un ennemi s'il est proche
+    // Rï¿½fï¿½rence d'un ennemi s'il est proche
     private GameObject enemy = null;
+    //[SerializeField] private GameObject[] Teleporteur;
 
     public static event Action OnAttack;
 
@@ -32,7 +33,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         Destroy(enemy);
         enemy = null;
-        OnAttack?.Invoke();
+        OnAttack?.Invoke(); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

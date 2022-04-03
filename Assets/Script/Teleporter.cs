@@ -24,6 +24,7 @@ public class Teleporter : MonoBehaviour
         player.GetComponent<Animator>().SetBool("isTeleport", true);
         yield return new WaitForSeconds(0.2f);
         player.GetComponent<Animator>().SetBool("isTeleport", false);
+        Destroy(gameObject);
         yield break;
     }
 }
