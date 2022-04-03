@@ -10,10 +10,9 @@ public class Teleporter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision");
         if (collision.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerTeleport>().Teleport(linkedTeleporter);
+            Debug.Log("teleporter");
             StartCoroutine(SyncAnimPlayer(collision.gameObject));
         }
     }
@@ -24,7 +23,13 @@ public class Teleporter : MonoBehaviour
         player.GetComponent<Animator>().SetBool("isTeleport", true);
         yield return new WaitForSeconds(0.2f);
         player.GetComponent<Animator>().SetBool("isTeleport", false);
+        player.GetComponent<PlayerTeleport>().Teleport(linkedTeleporter);
         Destroy(gameObject);
         yield break;
+    }
+
+    public void Activate()
+    {
+        GetComponent<Collider2D>().enabled = true;
     }
 }

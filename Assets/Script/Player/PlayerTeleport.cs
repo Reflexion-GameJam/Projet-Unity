@@ -7,15 +7,17 @@ public class PlayerTeleport : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private bool canTeleport = true;
+    private bool canTeleport ;
 
-    public static bool playerIsTop = true;
+    public static bool realWorld;
 
     public static event Action OnTeleport;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        canTeleport = true;
+        realWorld = true;
     }
 
     public void Teleport(GameObject linkedTeleporter)
@@ -30,7 +32,7 @@ public class PlayerTeleport : MonoBehaviour
         // Changement de la gravité
         rb.gravityScale = -rb.gravityScale;
 
-        playerIsTop = !playerIsTop;
+        realWorld = !realWorld;
         canTeleport = false;
 
         OnTeleport?.Invoke();

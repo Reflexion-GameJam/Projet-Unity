@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void EnemyAttacked()
+    public void KilledEnemy()
     {
         aggressiveness++;
         gamePanel.SetAggressiveness(aggressiveness);

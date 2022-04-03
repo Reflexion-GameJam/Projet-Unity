@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2054586649878760136
 Transform:
   m_ObjectHideFlags: 0
@@ -183,6 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bubble: {fileID: 2054586649878760138}
+  teleporter: {fileID: 0}
+  realWorld: 0
 --- !u!61 &2054586651052867341
 BoxCollider2D:
   m_ObjectHideFlags: 0

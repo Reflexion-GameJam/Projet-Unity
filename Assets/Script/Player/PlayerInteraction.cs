@@ -20,7 +20,6 @@ public class PlayerInteraction : MonoBehaviour
         {
             Debug.Log("attack");
             AttackEnemy();
-            GameManager.Instance.EnemyAttacked();
         }
 
         if (Input.GetButtonUp("Hide"))
@@ -31,18 +30,24 @@ public class PlayerInteraction : MonoBehaviour
 
     private void AttackEnemy()
     {
-        Destroy(enemy);
-        enemy = null;
-        OnAttack?.Invoke(); 
+        enemy.GetComponent<Enemy>().Attacked();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
-            Debug.Log("enemy found");
             enemy = collision.gameObject;
-            PlayerControler.canMove = false;
+            if (!PlayerTeleport.realWorld)
+            {
+                enemy.GetComponent<Enemy>().Attacked();
+                GameManager.Instance.KilledEnemy();
+                OnAttack?.Invoke();
+            }
+            else
+            {
+                PlayerControler.canMove = false;
+            }
         }
     }
 
@@ -50,7 +55,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            Debug.Log("enemy lost");
+            Debug.Log("Ennemy exit");
             enemy = null;
             PlayerControler.canMove = true;
         }

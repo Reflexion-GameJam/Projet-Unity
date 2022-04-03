@@ -75,7 +75,7 @@ public class AudioManager : MonoBehaviour
 
     private void ChangeWorldMusic()
     {
-        if (PlayerTeleport.playerIsTop)
+        if (PlayerTeleport.realWorld)
             audioSource.clip = topMusic;
         else
             audioSource.clip = bottomMusic;

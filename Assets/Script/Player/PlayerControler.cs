@@ -69,7 +69,10 @@ public class PlayerControler : MonoBehaviour
     private void FixedUpdate()
     {
         if (!canMove)
+        {
+            rb.velocity = Vector2.zero;
             return;
+        }
 
         float dirX = Input.GetAxis("Horizontal");
         FlipImage(dirX);
