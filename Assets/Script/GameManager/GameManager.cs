@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private int aggressiveness = 0;
-    public Slider slider;
+    [SerializeField]
+    private GamePanel gamePanel;
 
-    public EndGamePanel endGamePanel;
+    private int aggressiveness = 0;
+    private bool isPaused;
 
     void Awake()
     {
@@ -25,15 +27,65 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        if (!gamePanel)
+            gamePanel = GameObject.Find("GamePanel").GetComponent<GamePanel>();
+
+        isPaused = false;
+        LockMouse();
+    }
+
+    void Update()
+    {
+        // Si le joueur appuie sur "Echap"
+        if (Input.GetKeyUp(KeyCode.Escape) || Input.GetButtonUp("Cancel"))
+        {
+            if (isPaused)
+                Unpause();
+            else
+                Pause();
+        }
+    }
+
+    // Mise en pause
+    public void Pause()
+    {
+        isPaused = true;
+        UnlockMouse();
+        gamePanel.Pause();
+        Time.timeScale = 0;
+    }
+
+    // Mise en marche
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        gamePanel.Unpause();
+        LockMouse();
+        isPaused = false;
+    }
+
+    private void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public void EnemyKilled()
     {
         aggressiveness++;
-        slider.value = aggressiveness;
+        gamePanel.SetAggressiveness(aggressiveness);
     }
 
     public void EndGame()
     {
-        endGamePanel.gameObject.SetActive(true);
         string message = "";
         switch (aggressiveness)
         {
@@ -50,6 +102,11 @@ public class GameManager : MonoBehaviour
                 message = "Carrément un psychopathe";
                 break;
         }
-        endGamePanel.SetMessage(message);
+        gamePanel.EndGame(message);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

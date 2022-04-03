@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pause : MonoBehaviour
+public class Pause : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
     public int pauseInt;
