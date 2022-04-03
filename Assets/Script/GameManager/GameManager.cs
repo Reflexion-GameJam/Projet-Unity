@@ -32,8 +32,7 @@ public class GameManager : MonoBehaviour
         if (!gamePanel)
             gamePanel = GameObject.Find("GamePanel").GetComponent<GamePanel>();
 
-        isPaused = false;
-        LockMouse();
+        Unpause();
     }
 
     void Update()
@@ -86,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
+        Pause();
         string message = "";
         switch (aggressiveness)
         {
