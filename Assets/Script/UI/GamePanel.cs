@@ -13,6 +13,9 @@ public class GamePanel : MonoBehaviour
     [SerializeField]
     private EndGamePanel endGamePanel;
 
+    [SerializeField]
+    private GameObject interactionText;
+
     public void SetAggressiveness(int value)
     {
         slider.value = value;
@@ -32,5 +35,15 @@ public class GamePanel : MonoBehaviour
     {
         endGamePanel.gameObject.SetActive(true);
         endGamePanel.SetMessage(message);
+    }
+
+    public void ShowInteractionText()
+    {
+        interactionText.SetActive(true);
+    }
+
+    public void HideInteractionText()
+    {
+        interactionText.SetActive(false);
     }
 }

@@ -24,12 +24,16 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetButtonUp("Hide"))
         {
+            Destroy(enemy);
+            PlayerControler.canMove = true;
+            GameManager.Instance.EnemyAttacked();
             Debug.Log("hide");
         }
     }
 
     private void AttackEnemy()
     {
+        GameManager.Instance.EnemyAttacked();
         enemy.GetComponent<Enemy>().Attacked();
     }
 
@@ -46,6 +50,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.EnemyFound();
                 PlayerControler.canMove = false;
             }
         }

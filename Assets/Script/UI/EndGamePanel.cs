@@ -14,4 +14,9 @@ public class EndGamePanel : MonoBehaviour
         imageText.sprite = message;
     }
 
+    public void OnBackToMenuBtnClick()
+    {
+        GameManager.Instance.BackToMenu();
+    }
+
 }

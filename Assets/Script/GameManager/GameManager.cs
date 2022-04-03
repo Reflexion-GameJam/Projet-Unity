@@ -45,16 +45,16 @@ public class GameManager : MonoBehaviour
             if (isPaused)
                 Unpause();
             else
-                Pause();
+                Pause(false);
         }
     }
 
     // Mise en pause
-    public void Pause()
+    public void Pause(bool endGame)
     {
         isPaused = true;
         UnlockMouse();
-        gamePanel.Pause();
+        if (!endGame) gamePanel.Pause();
         Time.timeScale = 0;
     }
 
@@ -85,16 +85,29 @@ public class GameManager : MonoBehaviour
         gamePanel.SetAggressiveness(aggressiveness);
     }
 
+    public void EnemyFound()
+    {
+        gamePanel.ShowInteractionText();
+    }
+
+    public void EnemyAttacked()
+    {
+        gamePanel.HideInteractionText();
+    }
+
     public void EndGame()
     {
-        Pause();
+        Pause(true);
         Sprite message = null;
         switch (aggressiveness)
         {
             case 0:
                 message = SpriteFin[0];
                 break;
-            case 1 | 2:
+            case 1:
+                message = SpriteFin[1];
+                break;
+            case 2:
                 message = SpriteFin[1];
                 break;
             default:
