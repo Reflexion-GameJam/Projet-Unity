@@ -90,6 +90,7 @@ OUT.vertex = UnityObjectToClipPos(IN.vertex);
 float4 screenpos = ComputeGrabScreenPos(OUT.vertex);
 OUT.screenuv = screenpos.xy / screenpos.w;
 
+
 OUT.texcoord = IN.texcoord;
 OUT.color = IN.color;
 
