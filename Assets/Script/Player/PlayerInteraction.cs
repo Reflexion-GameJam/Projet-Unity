@@ -37,6 +37,14 @@ public class PlayerInteraction : MonoBehaviour
         enemy.GetComponent<Enemy>().Attacked();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "End")
+        {
+            GameManager.Instance.EndGame();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")

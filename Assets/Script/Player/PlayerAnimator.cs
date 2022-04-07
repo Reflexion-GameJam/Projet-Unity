@@ -32,7 +32,7 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
 
-        // Si le joueur ce déplace
+        // Si le joueur se déplace
         if (Input.GetButton("Horizontal"))
         {
             plAnim.SetBool("isWalk", true);
