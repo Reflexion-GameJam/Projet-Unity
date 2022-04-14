@@ -122,7 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea993b0f5444c054f9c8cfa43665689b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleWalk: {fileID: 263237840152239848}
+  walkParticle: {fileID: 263237840152239848}
+  minSpeed: 3
+  maxSpeed: 5
+  realWorldSpawnHeight: 7
 --- !u!114 &3109870016392765551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +220,7 @@ GameObject:
   - component: {fileID: 263237840152239861}
   - component: {fileID: 263237840152239850}
   m_Layer: 0
-  m_Name: WalkEffectPlayer
+  m_Name: WalkParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

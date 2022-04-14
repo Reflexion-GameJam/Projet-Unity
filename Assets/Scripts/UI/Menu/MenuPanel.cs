@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class to manage the menu panel
+/// </summary>
 public class MenuPanel : MonoBehaviour
 {
     [SerializeField]
@@ -29,6 +32,8 @@ public class MenuPanel : MonoBehaviour
 
     public void OnQuitBtnClick()
     {
+#if UNITY_STANDALONE
         Application.Quit();
+#endif
     }
 }

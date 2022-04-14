@@ -3,38 +3,43 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+/// <summary>
+/// Class used to manage the movement of the player by listening to keyboard/controller inputs
+/// </summary>
+[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Basic Information Player"), Space(5)]
+    [Header("Effect Particle"), Space(5)]
+    public GameObject walkParticle;
+
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
-    
-    [SerializeField]
-    public const float minSpeed = 2.0f;
-    [SerializeField]
-    public const float maxSpeed = 4.0f;
-    private float currentSpeed = minSpeed;
 
-    private const float realWorldSpawnHeight = 7.0f;
-    private const float alternativeWorldSpawnHeight = -7.0f;
-    private float spawnHeight = realWorldSpawnHeight;
+    [SerializeField]
+    private float minSpeed = 3.0f;
+    [SerializeField]
+    private float maxSpeed = 5.0f;
+    private float currentSpeed;
+
+    [SerializeField]
+    private float realWorldSpawnHeight = 7.0f;
+    private float alternativeWorldSpawnHeight = -7.0f;
+    private float spawnHeight;
 
     public static bool canMove { get; private set; }
-
-    [Header("Effect Particle"), Space(5)]
-    public GameObject particleWalk;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         
-        if (particleWalk == null)
+        if (walkParticle == null)
         {
-            particleWalk = GameObject.Find("WalkEffectPlayer");
+            walkParticle = transform.GetChild(0).gameObject;
         }
 
+        currentSpeed = minSpeed;
+        spawnHeight = realWorldSpawnHeight;
         canMove = true;
     }
 
@@ -48,20 +53,23 @@ public class PlayerController : MonoBehaviour
     void OnDisable()
     {
         EventManager.OnTeleportPlayer -= Teleport;
+        EventManager.OnLockPlayer -= LockMovement;
+        EventManager.OnUnlockPlayer -= UnlockMovement;
     }
 
     void Update()
     {
+        // Do nothing if the player can't move
         if (!canMove)
         {
             return;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             currentSpeed = maxSpeed;
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             currentSpeed = minSpeed;
         }
@@ -69,11 +77,11 @@ public class PlayerController : MonoBehaviour
         // If the player is moving
         if (Input.GetButtonDown("Horizontal"))
         {
-            particleWalk.SetActive(true);
+            walkParticle.SetActive(true);
         }
         else if (Input.GetButtonUp("Horizontal"))
         {
-            particleWalk.SetActive(false);
+            walkParticle.SetActive(false);
         }
     }
 
@@ -81,7 +89,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove)
         {
-            rb.velocity = Vector2.zero;
             return;
         }
 
@@ -91,24 +98,31 @@ public class PlayerController : MonoBehaviour
         // Move the player
         rb.velocity = new Vector2(dirX * currentSpeed, rb.velocity.y);
     }
-    
 
-    // Flip sprite orientation depending on the direction that the player is facing
+    /// <summary>
+    /// Flip sprite orientation depending on the direction that the player is facing
+    /// </summary>
+    /// <param name="inputX">Value of the horizontal axis input</param>
     private void FlipImageX(float inputX)
     {
-        if (inputX > 0)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else if (inputX < 0)
+        // Left
+        if (inputX < 0)
         {
             spriteRenderer.flipX = true;
         }
+        // Right
+        else if (inputX > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
+    /// <summary>
+    /// Adapt the player's position, rotation and gravity scale to the new world he'll be teleported in
+    /// </summary>
     private void Teleport()
     {
-        if (GameManager.currentWorld == World.REAL)
+        if (GameManager.Instance.currentWorld == World.REAL)
         {
             spawnHeight = realWorldSpawnHeight;
         }
@@ -126,6 +140,8 @@ public class PlayerController : MonoBehaviour
     private void LockMovement()
     {
         canMove = false;
+        rb.velocity = Vector2.zero;
+        walkParticle.SetActive(false);
     }
 
     private void UnlockMovement()

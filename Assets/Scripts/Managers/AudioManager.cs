@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Singleton class used to manage Audio sounds.
+/// Only one instance of this class will be active in the scene
+/// </summary>
 public class AudioManager : MonoBehaviour
 {
-    // --- Singleton ---
+    /// <summary>
+    /// Single active instance of AudioManager
+    /// </summary>
     public static AudioManager Instance { get; private set; }
 
     [SerializeField]
@@ -57,44 +63,60 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When enabled, listen to events that will be invoked
+    /// </summary>
     void OnEnable()
     {
-        // Listen events
         EventManager.OnTeleportPlayer += PlayTeleportSound;
         EventManager.OnPlayerAttack += PlayAttackSound;
         EventManager.OnEnemyLaugh += PlayLaughSound;
     }
 
+    /// <summary>
+    /// When disaabled, stop listening to events
+    /// </summary>
     void OnDisable()
     {
-        // Stop listening events
         EventManager.OnTeleportPlayer -= PlayTeleportSound;
         EventManager.OnPlayerAttack -= PlayAttackSound;
         EventManager.OnEnemyLaugh -= PlayLaughSound;
     }
 
-    private void ChangeWorldMusic()
-    {
-        if (GameManager.currentWorld == World.REAL)
-            audioSource.clip = realWorldMusic;
-        else
-            audioSource.clip = alternativeWorldMusic;
-
-        // Attendre la fin du son de téléportation
-        audioSource.PlayDelayed(teleport.length - 1f);
-    }
-
+    /// <summary>
+    /// Play teleport sounds and changes the background music
+    /// </summary>
     public void PlayTeleportSound()
     {
         audioSource.PlayOneShot(teleport);
         ChangeWorldMusic();
     }
 
+    /// <summary>
+    /// Change the background music depending on the world we'll be teleported in
+    /// </summary>
+    private void ChangeWorldMusic()
+    {
+        if (GameManager.Instance.currentWorld == World.REAL)
+            audioSource.clip = realWorldMusic;
+        else
+            audioSource.clip = alternativeWorldMusic;
+
+        // Wait for the end of the "teleportation" sound before playing the new music
+        audioSource.PlayDelayed(teleport.length - 1f);
+    }
+
+    /// <summary>
+    /// To play when the player meets an enemy in the real world
+    /// </summary>
     public void PlayLaughSound()
     {
         audioSource.PlayOneShot(childLaugh);
     }
 
+    /// <summary>
+    /// To play when the player attacks an enemy
+    /// </summary>
     public void PlayAttackSound()
     {
         audioSource.PlayOneShot(attack2);

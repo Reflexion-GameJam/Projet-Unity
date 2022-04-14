@@ -1,12 +1,16 @@
 using UnityEngine;
 
+/// <summary>
+/// Class used to manage the player's interactions like collisions, triggers and gameplay decisions
+/// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
-    // Reference d'un ennemi s'il est proche
+    // Reference to a close enemy
     private GameObject enemy = null;
 
     void Update()
     {
+        // Do nothing if there isn't a close enemy
         if (!enemy)
             return;
 
@@ -25,14 +29,14 @@ public class PlayerInteraction : MonoBehaviour
 
     private void AttackEnemy()
     {
-        GameManager.EnemyAttacked();
+        GameManager.Instance.EnemyAttacked();
         enemy.GetComponent<Enemy>().Attacked();
         enemy = null;
     }
 
     private void DodgeEnemy()
     {
-        GameManager.EnemyDodged();
+        GameManager.Instance.EnemyDodged();
         enemy.GetComponent<Enemy>().Dodged();
         enemy = null;
     }
@@ -41,7 +45,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.gameObject.tag == "End")
         {
-            GameManager.EndGame();
+            GameManager.Instance.EndGame();
         }
     }
 
@@ -50,14 +54,14 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.tag == "Enemy")
         {
             enemy = collision.gameObject;
-            if (GameManager.currentWorld == World.REAL)
+            if (GameManager.Instance.currentWorld == World.REAL)
             {
-                GameManager.EnemyFound();
+                GameManager.Instance.EnemyFound();
             }
             else
             {
                 Destroy(enemy);
-                GameManager.EnemyKilled();
+                GameManager.Instance.EnemyKilled();
             }
         }
     }

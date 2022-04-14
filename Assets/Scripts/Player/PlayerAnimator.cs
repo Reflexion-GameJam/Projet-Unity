@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Class used to manage the animations of the player
+/// </summary>
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
@@ -20,22 +23,23 @@ public class PlayerAnimator : MonoBehaviour
     void OnDisable()
     {
         EventManager.OnTeleportPlayer -= StartTeleportAnim;
-        EventManager.OnLockPlayer += StopWalkingAnim;
+        EventManager.OnLockPlayer -= StopWalkingAnim;
     }
 
     void Update()
     {
+        // Do nothing if the player can't move
         if (!PlayerController.canMove)
         {
             return;
         }
 
         // If the player is moving
-        if (Input.GetButton("Horizontal"))
+        if (Input.GetButtonDown("Horizontal"))
         {
             playerAnim.SetBool("isWalking", true);
         }
-        else
+        if (Input.GetButtonUp("Horizontal"))
         {
             StopWalkingAnim();
         }
@@ -51,12 +55,16 @@ public class PlayerAnimator : MonoBehaviour
         StartCoroutine(StartTeleportAnimCoroutine());
     }
 
+    /// <summary>
+    /// Coroutine to enable teleportation animation for a certain duration
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator StartTeleportAnimCoroutine()
     {
         playerAnim.SetBool("isTeleporting", true);
         yield return new WaitForSeconds(0.2f);
         playerAnim.SetBool("isTeleporting", false);
 
-        playerAnim.SetBool("isAlternative", (GameManager.currentWorld == World.ALTERNATIVE));
+        playerAnim.SetBool("isAlternative", (GameManager.Instance.currentWorld == World.ALTERNATIVE));
     }
 }

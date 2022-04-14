@@ -1,8 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to set on the Main Camera to follow a target (here the player)
+/// </summary>
+[RequireComponent(typeof(Camera))]
 public class CamFollow : MonoBehaviour
 {
     [SerializeField]
@@ -14,7 +15,7 @@ public class CamFollow : MonoBehaviour
 
     void Start()
     {
-        // Si le joueur n'est pas assigné
+        // If "player" variable hasn't been assigned
         if (player == null)
         {
             player = GameObject.Find("Player").transform;
@@ -33,12 +34,14 @@ public class CamFollow : MonoBehaviour
 
     void Update()
     {
-        // La caméra suit le joueur avec la position de décalage spécifiée
         transform.position = new Vector3 (Mathf.Lerp(transform.position.x, player.position.x, Time.deltaTime * smooth),
                                         Mathf.Lerp(transform.position.y, player.position.y + offsetY, Time.deltaTime * smooth),
                                         transform.position.z);
     }
 
+    /// <summary>
+    /// Called when the player is teleported from a world to another
+    /// </summary>
     private void SwitchOffsetY()
     {
         offsetY = -offsetY;

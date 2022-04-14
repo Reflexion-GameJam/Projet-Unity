@@ -1,17 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to manage the end game panel
+/// </summary>
 public class EndGamePanel : MonoBehaviour
 {
     [SerializeField]
-    private Image imageText;
+    private Image messageImage;
 
     public void SetMessage(Sprite message)
     {
-        imageText.sprite = message;
+        messageImage.sprite = message;
     }
 
     public void OnBackToMenuBtnClick()
