@@ -5,8 +5,8 @@ using UnityEngine;
 /// </summary>
 public class PausePanel : MonoBehaviour
 {
-    public void OnBackToMenuBtnClick()
+    public void OnBackToMenuBtnClick() // when the back to menu button is clicked
     {
-        GameManager.BackToMenu();
+        GameManager.BackToMenu(); // go back to the menu
     }
 }

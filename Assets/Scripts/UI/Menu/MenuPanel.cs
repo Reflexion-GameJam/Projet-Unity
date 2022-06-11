@@ -9,31 +9,31 @@ using UnityEngine.SceneManagement;
 public class MenuPanel : MonoBehaviour
 {
     [SerializeField]
-    private GameObject menu;
+    private GameObject menu; // menu panel
     [SerializeField]
-    private GameObject controls;
+    private GameObject controls; // controls panel
 
-    public void OnPlayBtnClick()
+    public void OnPlayBtnClick() // when play button is clicked
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game"); // load game scene
     }
 
-    public void OnControlsBtnClick()
+    public void OnControlsBtnClick() // when controls button is clicked
     {
-        menu.SetActive(false);
-        controls.SetActive(true);
+        menu.SetActive(false); // hide menu panel
+        controls.SetActive(true); // show controls panel
     }
 
-    public void OnBackBtnClick()
+    public void OnBackBtnClick() // when back button is clicked
     {
-        controls.SetActive(false);
-        menu.SetActive(true);
+        controls.SetActive(false); // hide controls panel
+        menu.SetActive(true); // show menu panel
     }
 
-    public void OnQuitBtnClick()
+    public void OnQuitBtnClick()  // when quit button is clicked
     {
 #if UNITY_STANDALONE
-        Application.Quit();
+        Application.Quit(); // quit application
 #endif
     }
 }

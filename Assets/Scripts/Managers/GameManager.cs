@@ -10,59 +10,59 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Single active instance of GameManager
     /// </summary>
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; private set; } // singleton instance
 
     /// <summary>
     /// Enum to know which world we're currently in
     /// </summary>
-    public World currentWorld { get; private set; }
+    public World currentWorld { get; private set; } // current world
 
     /// <summary>
     /// UI panel
     /// </summary>
     [SerializeField]
-    private GamePanel gamePanel;
+    private GamePanel gamePanel; // UI panel
 
     /// <summary>
     /// Sprites to set at the end
     /// </summary>
     [SerializeField]
-    public Sprite[] endSprites = { null, null, null };
+    public Sprite[] endSprites = { null, null, null }; // sprites to set at the end
 
-    private int aggressiveness = 0;
-    private bool isPaused;
+    private int aggressiveness = 0; // aggressiveness of the player
+    private bool isPaused; // is the game paused?
 
     void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null && Instance != this) // if there is already an instance of GameManager
         {
-            Destroy(this);
+            Destroy(this); // destroy this instance
             return;
         }
         else
         {
-            Instance = this;
+            Instance = this; // set this instance as the active instance
         }
     }
 
     void Start()
     {
-        if (!gamePanel)
-            gamePanel = GameObject.Find("GamePanel").GetComponent<GamePanel>();
+        if (!gamePanel) // if the UI panel is not set
+            gamePanel = GameObject.Find("GamePanel").GetComponent<GamePanel>(); // set it
 
-        Unpause();
-        currentWorld = World.REAL;
+        Unpause(); // unpause the game
+        currentWorld = World.REAL; // set the current world to real
     }
 
     void Update()
     {
         // If the player presses "Escape" button
-        if (Input.GetButtonUp("Cancel"))
+        if (Input.GetButtonUp("Cancel")) 
         {
-            if (isPaused)
-                Unpause();
+            if (isPaused) // if the game is paused
+                Unpause(); // unpause the game
             else
-                Pause(false);
+                Pause(false); // pause the game
         }
     }
 
@@ -72,10 +72,10 @@ public class GameManager : MonoBehaviour
     /// <param name="endGame">If false, shows pause panel</param>
     public void Pause(bool endGame)
     {
-        isPaused = true;
-        UnlockMouse();
-        if (!endGame) gamePanel.Pause();
-        Time.timeScale = 0;
+        isPaused = true; // set the game as paused
+        UnlockMouse(); // unlock the mouse
+        if (!endGame) gamePanel.Pause(); // if we're not ending the game, show the pause panel
+        Time.timeScale = 0; // set the time scale to 0
     }
 
     /// <summary>
@@ -83,10 +83,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void Unpause()
     {
-        Time.timeScale = 1;
-        gamePanel.Unpause();
-        LockMouse();
-        isPaused = false;
+        Time.timeScale = 1; // set the time scale to 1
+        gamePanel.Unpause(); // hide the pause panel
+        LockMouse(); // lock the mouse
+        isPaused = false; // set the game as not paused
     }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void LockMouse()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked; // lock the mouse
+        Cursor.visible = false; // hide the mouse
     }
 
     /// <summary>
@@ -103,8 +103,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void UnlockMouse()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None; // unlock the mouse
+        Cursor.visible = true; // show the mouse
     }
 
     /// <summary>
@@ -112,12 +112,12 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void TeleportPlayer()
     {
-        if (currentWorld == World.REAL)
-            currentWorld = World.ALTERNATIVE;
+        if (currentWorld == World.REAL) // if we're in the real world
+            currentWorld = World.ALTERNATIVE; // set the current world to the alternative world
         else
-            currentWorld = World.REAL;
+            currentWorld = World.REAL; // set the current world to the real world
 
-        EventManager.InvokeTeleportPlayer();
+        EventManager.InvokeTeleportPlayer(); // invoke the teleportation event
     }
 
     /// <summary>
@@ -125,9 +125,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EnemyFound()
     {
-        gamePanel.ShowInteractionText();
+        gamePanel.ShowInteractionText(); // show the interaction text
 
-        EventManager.InvokeLockPlayer();
+        EventManager.InvokeLockPlayer(); // invoke the lock player event
     }
 
     /// <summary>
@@ -135,10 +135,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EnemyAttacked()
     {
-        gamePanel.HideInteractionText();
+        gamePanel.HideInteractionText(); // hide the interaction text
 
         TeleportPlayer();
-        EventManager.InvokeUnlockPlayer();
+        EventManager.InvokeUnlockPlayer(); // invoke the unlock player event
     }
 
     /// <summary>
@@ -146,9 +146,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EnemyDodged()
     {
-        gamePanel.HideInteractionText();
+        gamePanel.HideInteractionText(); // hide the interaction text
 
-        EventManager.InvokeUnlockPlayer();
+        EventManager.InvokeUnlockPlayer(); // invoke the unlock player event
     }
 
     /// <summary>
@@ -157,11 +157,11 @@ public class GameManager : MonoBehaviour
     public void EnemyKilled()
     {
         // Increase aggressiveness and update the UI (slider)
-        aggressiveness++;
-        gamePanel.SetAggressiveness(aggressiveness);
+        aggressiveness++; 
+        gamePanel.SetAggressiveness(aggressiveness); // set the slider to the new value
 
         // Teleport the player back to the real world
-        TeleportPlayer();
+        TeleportPlayer(); 
     }
 
     /// <summary>
@@ -169,24 +169,24 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void EndGame()
     {
-        Pause(true);
-        Sprite message = null;
-        switch (aggressiveness)
+        Pause(true); // pause the game
+        Sprite message = null; // message to show
+        switch (aggressiveness) // depending on the aggressiveness
         {
-            case 0:
-                message = endSprites[0];
+            case 0: // if the player is not aggressive
+                message = endSprites[0]; 
                 break;
-            case 1:
+            case 1: // if the player is aggressive
                 message = endSprites[1];
                 break;
-            case 2:
+            case 2: // if the player is very aggressive
                 message = endSprites[1];
                 break;
-            default:
+            default: // if the player is extremely aggressive
                 message = endSprites[2];
                 break;
         }
-        gamePanel.EndGame(message);
+        gamePanel.EndGame(message); // show the message
     }
 
     /// <summary>
@@ -194,6 +194,6 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static void BackToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("Menu"); // load the menu scene
     }
 }

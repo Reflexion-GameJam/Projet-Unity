@@ -7,36 +7,37 @@ using UnityEngine;
 public class CamFollow : MonoBehaviour
 {
     [SerializeField]
-    private Transform player;
+    private Transform player; // The target to follow
     [SerializeField]
-    private float offsetY;
+    private float offsetY; // The offset on the Y axis
     [SerializeField]
-    private float smooth;
+    private float smooth; // The smoothness of the camera movement
 
     void Start()
     {
         // If "player" variable hasn't been assigned
         if (player == null)
         {
-            player = GameObject.Find("Player").transform;
+            player = GameObject.Find("Player").transform; // Assign it
         }
     }
 
     void OnEnable()
     {
-        EventManager.OnTeleportPlayer += SwitchOffsetY;
+        EventManager.OnTeleportPlayer += SwitchOffsetY; // Subscribe to the event
     }
 
     void OnDisable()
     {
-        EventManager.OnTeleportPlayer -= SwitchOffsetY;
+        EventManager.OnTeleportPlayer -= SwitchOffsetY;  // Unsubscribe from the event
     }
 
     void Update()
     {
+        // Move the camera to the player position + the offset Y axis (to follow the player) + the Z axis (to keep the camera at the same height) + the smoothness of the movement (to make the camera move smoothly) + the time since the last frame (to make the camera move smoothly) 
         transform.position = new Vector3 (Mathf.Lerp(transform.position.x, player.position.x, Time.deltaTime * smooth),
                                         Mathf.Lerp(transform.position.y, player.position.y + offsetY, Time.deltaTime * smooth),
-                                        transform.position.z);
+                                        transform.position.z); 
     }
 
     /// <summary>
@@ -44,6 +45,6 @@ public class CamFollow : MonoBehaviour
     /// </summary>
     private void SwitchOffsetY()
     {
-        offsetY = -offsetY;
+        offsetY = -offsetY; // Switch the offset Y axis
     }
 }

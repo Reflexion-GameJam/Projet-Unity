@@ -11,55 +11,55 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Single active instance of AudioManager
     /// </summary>
-    public static AudioManager Instance { get; private set; }
+    public static AudioManager Instance { get; private set; } // singleton instance
 
     [SerializeField]
-    private AudioSource audioSource;
+    private AudioSource audioSource; // audio source used to play sounds
 
-    #region AudioClips
-    [Header("Musiques"), Space(5)]
+    #region AudioClips 
+    [Header("Musiques"), Space(5)] // space between header and first element
 
+    [SerializeField] 
+    private AudioClip realWorldMusic; // real world music
     [SerializeField]
-    private AudioClip realWorldMusic;
-    [SerializeField]
-    private AudioClip alternativeWorldMusic;
+    private AudioClip alternativeWorldMusic; // alternative world music
 
     [Header("Audio clips"), Space(5)]
 
     [SerializeField]
-    private AudioClip bunnyJump;
+    private AudioClip bunnyJump; // bunny jump sound
     [SerializeField]
-    private AudioClip bullyJump1;
+    private AudioClip bullyJump1; // bully jump sound 1
     [SerializeField]
-    private AudioClip bullyJump2;
+    private AudioClip bullyJump2; // bully jump sound 2
     [SerializeField]
-    private AudioClip teleport;
+    private AudioClip teleport; // teleport sound
     [SerializeField]
-    private AudioClip childLaugh;
+    private AudioClip childLaugh; // child laugh sound
     [SerializeField]
-    private AudioClip threeChildrenLaugh;
+    private AudioClip threeChildrenLaugh; // three children laugh sound
     [SerializeField]
-    private AudioClip attack1;
+    private AudioClip attack1; // attack sound 1
     [SerializeField]
-    private AudioClip attack2;
+    private AudioClip attack2; // attack sound 2
 
     #endregion
 
-    void Awake()
+    void Awake() // called before start
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null && Instance != this) // if an instance of AudioManager already exists
         {
-            Destroy(this);
+            Destroy(this); // destroy this instance
             return;
         }
         else
         {
-            Instance = this;
+            Instance = this; // set this instance as the active instance
         }
 
-        if (audioSource == null)
+        if (audioSource == null) // if audio source is not set
         {
-            audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource>();  // set audio source
         }
     }
 
@@ -68,9 +68,9 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        EventManager.OnTeleportPlayer += PlayTeleportSound;
-        EventManager.OnPlayerAttack += PlayAttackSound;
-        EventManager.OnEnemyLaugh += PlayLaughSound;
+        EventManager.OnTeleportPlayer += PlayTeleportSound; // listen to teleport event
+        EventManager.OnPlayerAttack += PlayAttackSound; // listen to event that will play attack sound
+        EventManager.OnEnemyLaugh += PlayLaughSound; // listen to event that will play laugh sound
     }
 
     /// <summary>
@@ -78,9 +78,9 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     void OnDisable()
     {
-        EventManager.OnTeleportPlayer -= PlayTeleportSound;
-        EventManager.OnPlayerAttack -= PlayAttackSound;
-        EventManager.OnEnemyLaugh -= PlayLaughSound;
+        EventManager.OnTeleportPlayer -= PlayTeleportSound; // stop listening to teleport event
+        EventManager.OnPlayerAttack -= PlayAttackSound; // stop listening to event that will play attack sound
+        EventManager.OnEnemyLaugh -= PlayLaughSound; // stop listening to event that will play laugh sound
     }
 
     /// <summary>
@@ -88,8 +88,8 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayTeleportSound()
     {
-        audioSource.PlayOneShot(teleport);
-        ChangeWorldMusic();
+        audioSource.PlayOneShot(teleport); // play teleport sound
+        ChangeWorldMusic(); // change background music
     }
 
     /// <summary>
@@ -97,10 +97,10 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     private void ChangeWorldMusic()
     {
-        if (GameManager.Instance.currentWorld == World.REAL)
-            audioSource.clip = realWorldMusic;
+        if (GameManager.Instance.currentWorld == World.REAL) // if we're in the real world
+            audioSource.clip = realWorldMusic; // set the music to real world music
         else
-            audioSource.clip = alternativeWorldMusic;
+            audioSource.clip = alternativeWorldMusic; // set the music to alternative world music
 
         // Wait for the end of the "teleportation" sound before playing the new music
         audioSource.PlayDelayed(teleport.length - 1f);
@@ -111,7 +111,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayLaughSound()
     {
-        audioSource.PlayOneShot(childLaugh);
+        audioSource.PlayOneShot(childLaugh); // play child laugh sound
     }
 
     /// <summary>
@@ -119,6 +119,6 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void PlayAttackSound()
     {
-        audioSource.PlayOneShot(attack2);
+        audioSource.PlayOneShot(attack2); // play attack sound 2
     }
 }

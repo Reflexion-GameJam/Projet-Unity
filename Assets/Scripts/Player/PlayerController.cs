@@ -10,93 +10,93 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Effect Particle"), Space(5)]
-    public GameObject walkParticle;
+    public GameObject walkParticle; // Particle effect when the player is walking
 
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rb; // Rigidbody of the player
+    private SpriteRenderer spriteRenderer; // Sprite renderer of the player
+ 
+    [SerializeField]
+    private float minSpeed = 3.0f; // Minimum speed of the player
+    [SerializeField]
+    private float maxSpeed = 5.0f; // Maximum speed of the player
+    private float currentSpeed; // Current speed of the player
 
     [SerializeField]
-    private float minSpeed = 3.0f;
-    [SerializeField]
-    private float maxSpeed = 5.0f;
-    private float currentSpeed;
+    private float realWorldSpawnHeight = 7.0f; // Height of the player in the real world
+    private float alternativeWorldSpawnHeight = -7.0f; // Height of the player in the alternative world
+    private float spawnHeight; // Height of the player in the current world
 
-    [SerializeField]
-    private float realWorldSpawnHeight = 7.0f;
-    private float alternativeWorldSpawnHeight = -7.0f;
-    private float spawnHeight;
-
-    public static bool canMove { get; private set; }
+    public static bool canMove { get; private set; } // Boolean used to know if the player can move or not
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>(); // Get the rigidbody of the player
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Get the sprite renderer of the player
         
-        if (walkParticle == null)
+        if (walkParticle == null) // If the particle effect is not set
         {
-            walkParticle = transform.GetChild(0).gameObject;
+            walkParticle = transform.GetChild(0).gameObject; // Get the particle effect of the player
         }
 
-        currentSpeed = minSpeed;
-        spawnHeight = realWorldSpawnHeight;
-        canMove = true;
+        currentSpeed = minSpeed; // Set the current speed of the player to the minimum speed
+        spawnHeight = realWorldSpawnHeight; // Set the spawn height of the player to the real world spawn height
+        canMove = true; // Set the player can move to true
     }
 
     void OnEnable()
     {
-        EventManager.OnTeleportPlayer += Teleport;
-        EventManager.OnLockPlayer += LockMovement;
-        EventManager.OnUnlockPlayer += UnlockMovement;
+        EventManager.OnTeleportPlayer += Teleport; // Listen to the event OnTeleportPlayer
+        EventManager.OnLockPlayer += LockMovement; // Listen to the event OnLockPlayer
+        EventManager.OnUnlockPlayer += UnlockMovement; // Listen to the event OnUnlockPlayer
     }
 
     void OnDisable()
     {
-        EventManager.OnTeleportPlayer -= Teleport;
-        EventManager.OnLockPlayer -= LockMovement;
-        EventManager.OnUnlockPlayer -= UnlockMovement;
+        EventManager.OnTeleportPlayer -= Teleport; // Stop listening to the event OnTeleportPlayer
+        EventManager.OnLockPlayer -= LockMovement; // Stop listening to the event OnLockPlayer
+        EventManager.OnUnlockPlayer -= UnlockMovement; // Stop listening to the event OnUnlockPlayer
     }
 
     void Update()
     {
         // Do nothing if the player can't move
-        if (!canMove)
+        if (!canMove)   
         {
-            return;
+            return; // Exit the function
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift)) // If the player press the left shift key
         {
-            currentSpeed = maxSpeed;
+            currentSpeed = maxSpeed; // Set the current speed of the player to the maximum speed 
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift)) //  If the player release the left shift key
         {
-            currentSpeed = minSpeed;
+            currentSpeed = minSpeed; // Set the current speed of the player to the minimum speed
         }
 
         // If the player is moving
-        if (Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Horizontal")) // If the player press the left or right arrow key
         {
-            walkParticle.SetActive(true);
+            walkParticle.SetActive(true); // Activate the particle effect
         }
-        else if (Input.GetButtonUp("Horizontal"))
+        else if (Input.GetButtonUp("Horizontal")) // If the player release the left or right arrow key
         {
-            walkParticle.SetActive(false);
+            walkParticle.SetActive(false); // Deactivate the particle effect
         }
     }
 
     private void FixedUpdate()
     {
-        if (!canMove)
+        if (!canMove) // If the player can't move
         {
             return;
         }
 
-        float dirX = Input.GetAxis("Horizontal");
-        FlipImageX(dirX);
+        float dirX = Input.GetAxis("Horizontal"); // Get the horizontal axis
+        FlipImageX(dirX); // Flip the image of the player depending on the direction of the movement
 
         // Move the player
-        rb.velocity = new Vector2(dirX * currentSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(dirX * currentSpeed, rb.velocity.y); // Move the player in the horizontal axis
     }
 
     /// <summary>
@@ -106,14 +106,14 @@ public class PlayerController : MonoBehaviour
     private void FlipImageX(float inputX)
     {
         // Left
-        if (inputX < 0)
+        if (inputX < 0) // If the player is moving left
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = true; // Flip the sprite to the left
         }
         // Right
-        else if (inputX > 0)
+        else if (inputX > 0) // If the player is moving right
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = false; // Flip the sprite to the right
         }
     }
 
@@ -122,30 +122,30 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void Teleport()
     {
-        if (GameManager.Instance.currentWorld == World.REAL)
+        if (GameManager.Instance.currentWorld == World.REAL) // If the player is in the real world
         {
-            spawnHeight = realWorldSpawnHeight;
+            spawnHeight = realWorldSpawnHeight; // Set the spawn height of the player to the real world spawn height
         }
         else
         {
-            spawnHeight = alternativeWorldSpawnHeight;
+            spawnHeight = alternativeWorldSpawnHeight; // Set the spawn height of the player to the alternative world spawn height
         }
 
-        transform.position = new Vector3(transform.position.x, spawnHeight, transform.position.z);
-        transform.Rotate(new Vector3(180, 0, 0));
+        transform.position = new Vector3(transform.position.x, spawnHeight, transform.position.z); // Set the player's position to the new spawn height
+        transform.Rotate(new Vector3(180, 0, 0)); // Rotate the player to the new world
 
-        rb.gravityScale = -rb.gravityScale;
+        rb.gravityScale = -rb.gravityScale; // Invert the gravity scale of the player
     }
 
-    private void LockMovement()
+    private void LockMovement() // Lock the player's movement
     {
-        canMove = false;
-        rb.velocity = Vector2.zero;
-        walkParticle.SetActive(false);
+        canMove = false; // Set the player can move to false
+        rb.velocity = Vector2.zero; // Stop the player
+        walkParticle.SetActive(false); // Deactivate the particle effect
     }
 
-    private void UnlockMovement()
+    private void UnlockMovement() // Unlock the player's movement
     {
-        canMove = true;
+        canMove = true; // Set the player can move to true
     }
 }

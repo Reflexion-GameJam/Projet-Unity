@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class EndGamePanel : MonoBehaviour
 {
     [SerializeField]
-    private Image messageImage;
+    private Image messageImage; // Image to display the message
 
-    public void SetMessage(Sprite message)
+    public void SetMessage(Sprite message) // Set the message to display
     {
-        messageImage.sprite = message;
+        messageImage.sprite = message; // Set the image to display the message
     }
 
-    public void OnBackToMenuBtnClick()
+    public void OnBackToMenuBtnClick() // Called when the back to menu button is clicked
     {
-        GameManager.BackToMenu();
+        GameManager.BackToMenu(); // Go back to the menu
     }
 
 }

@@ -7,23 +7,23 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
-    private Animator playerAnim;
+    private Animator playerAnim; // Reference to the player's animator
 
     void Start()
     {
-        playerAnim = gameObject.GetComponent<Animator>();
+        playerAnim = gameObject.GetComponent<Animator>(); // Get the reference to the player's animator
     }
 
-    void OnEnable()
+    void OnEnable() // Called when the object is enabled
     {
-        EventManager.OnLockPlayer += StopWalkingAnim;
-        EventManager.OnTeleportPlayer += StartTeleportAnim;
+        EventManager.OnLockPlayer += StopWalkingAnim; // Subscribe to the event that stops the walking animation
+        EventManager.OnTeleportPlayer += StartTeleportAnim; // Subscribe to the event that starts the teleport animation
     }
 
-    void OnDisable()
+    void OnDisable() // Called when the object is disabled
     {
-        EventManager.OnTeleportPlayer -= StartTeleportAnim;
-        EventManager.OnLockPlayer -= StopWalkingAnim;
+        EventManager.OnTeleportPlayer -= StartTeleportAnim; // Unsubscribe from the event that starts the teleport animation
+        EventManager.OnLockPlayer -= StopWalkingAnim; // Unsubscribe from the event that stops the walking animation
     }
 
     void Update()
@@ -31,28 +31,28 @@ public class PlayerAnimator : MonoBehaviour
         // Do nothing if the player can't move
         if (!PlayerController.canMove)
         {
-            return;
+            return; // Exit the function
         }
 
         // If the player is moving
-        if (Input.GetButtonDown("Horizontal"))
+        if (Input.GetButtonDown("Horizontal")) // If the player is pressing the horizontal button
         {
-            playerAnim.SetBool("isWalking", true);
+            playerAnim.SetBool("isWalking", true); // Start the walking animation
         }
-        if (Input.GetButtonUp("Horizontal"))
+        if (Input.GetButtonUp("Horizontal")) // If the player is not pressing the horizontal button
         {
-            StopWalkingAnim();
+            StopWalkingAnim(); // Stop the walking animation
         }
     }
 
-    private void StopWalkingAnim()
+    private void StopWalkingAnim() // Function used to stop the walking animation
     {
-        playerAnim.SetBool("isWalking", false);
+        playerAnim.SetBool("isWalking", false); // Stop the walking animation
     }
 
-    private void StartTeleportAnim()
+    private void StartTeleportAnim() // Function used to start the teleport animation
     {
-        StartCoroutine(StartTeleportAnimCoroutine());
+        StartCoroutine(StartTeleportAnimCoroutine()); // Start the coroutine that starts the teleport animation
     }
 
     /// <summary>
@@ -61,10 +61,10 @@ public class PlayerAnimator : MonoBehaviour
     /// <returns></returns>
     private IEnumerator StartTeleportAnimCoroutine()
     {
-        playerAnim.SetBool("isTeleporting", true);
-        yield return new WaitForSeconds(0.2f);
-        playerAnim.SetBool("isTeleporting", false);
+        playerAnim.SetBool("isTeleporting", true); // Start the teleport animation
+        yield return new WaitForSeconds(0.2f); // Wait for 0.2 seconds
+        playerAnim.SetBool("isTeleporting", false); // Stop the teleport animation
 
-        playerAnim.SetBool("isAlternative", (GameManager.Instance.currentWorld == World.ALTERNATIVE));
+        playerAnim.SetBool("isAlternative", (GameManager.Instance.currentWorld == World.ALTERNATIVE)); // Set the isAlternative parameter to true if the current world is the alternative world
     }
 }

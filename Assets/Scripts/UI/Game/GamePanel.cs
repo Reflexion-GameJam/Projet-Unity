@@ -9,16 +9,16 @@ using UnityEngine.UI;
 public class GamePanel : MonoBehaviour
 {
     [SerializeField]
-    private PausePanel pausePanel;
+    private PausePanel pausePanel; // Reference to the pause panel
     [SerializeField]
-    private EndGamePanel endGamePanel;
+    private EndGamePanel endGamePanel; // Reference to the end game panel
 
     [SerializeField]
-    private Slider slider;
+    private Slider slider; // Reference to the slider
     [SerializeField]
-    private GameObject interactionText;
+    private GameObject interactionText; // Reference to the interaction text
 
-    public void SetAggressiveness(int value)
+    public void SetAggressiveness(int value) // Set the slider value
     {
         slider.value = value;
     }
@@ -26,9 +26,9 @@ public class GamePanel : MonoBehaviour
     /// <summary>
     /// Show pause panel
     /// </summary>
-    public void Pause()
+    public void Pause() 
     {
-        pausePanel.gameObject.SetActive(true);
+        pausePanel.gameObject.SetActive(true); // Show the pause panel
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ public class GamePanel : MonoBehaviour
     /// </summary>
     public void Unpause()
     {
-        pausePanel.gameObject.SetActive(false);
+        pausePanel.gameObject.SetActive(false); // Hide the pause panel
     }
 
     /// <summary>
@@ -45,16 +45,16 @@ public class GamePanel : MonoBehaviour
     /// <param name="message">Sprite to show at the end</param>
     public void EndGame(Sprite message)
     {
-        endGamePanel.gameObject.SetActive(true);
-        endGamePanel.SetMessage(message);
+        endGamePanel.gameObject.SetActive(true); // Show the end game panel
+        endGamePanel.SetMessage(message); // Set the sprite to show
     }
 
-    public void ShowInteractionText()
+    public void ShowInteractionText() // Show the interaction text
     {
         interactionText.SetActive(true);
     }
 
-    public void HideInteractionText()
+    public void HideInteractionText()   // Hide the interaction text
     {
         interactionText.SetActive(false);
     }

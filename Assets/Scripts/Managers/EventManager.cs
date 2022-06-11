@@ -10,50 +10,50 @@ public class EventManager : MonoBehaviour
     /// <summary>
     /// Single active instance of EventManager
     /// </summary>
-    public static EventManager Instance { get; private set; }
+    public static EventManager Instance { get; private set; } // singleton
 
     #region Events
-    public static event Action OnLockPlayer;
-    public static event Action OnUnlockPlayer;
-    public static event Action OnEnemyLaugh;
-    public static event Action OnPlayerAttack;
-    public static event Action OnTeleportPlayer;
+    public static event Action OnLockPlayer; // event to lock player
+    public static event Action OnUnlockPlayer; // event to unlock player
+    public static event Action OnEnemyLaugh; // event to play enemy laugh
+    public static event Action OnPlayerAttack; // event to play player attack
+    public static event Action OnTeleportPlayer; // event to teleport player
     #endregion
 
-    void Awake()
+    void Awake() 
     {
-        if (Instance != null && Instance != this)
+        if (Instance != null && Instance != this) // if instance already exists and it's not this
         {
-            Destroy(this);
+            Destroy(this); // destroy this
             return;
         }
         else
         {
-            Instance = this;
+            Instance = this; // set instance to this
         }
     }
 
-    public static void InvokeLockPlayer()
+    public static void InvokeLockPlayer() // invoke lock player event
     {
-        OnLockPlayer?.Invoke();
+        OnLockPlayer?.Invoke(); // invoke event
     }
 
-    public static void InvokeUnlockPlayer()
+    public static void InvokeUnlockPlayer() // invoke unlock player event
     {
-        OnUnlockPlayer?.Invoke();
+        OnUnlockPlayer?.Invoke(); // invoke event
     }
-    public static void InvokeEnemyLaugh()
+    public static void InvokeEnemyLaugh() // invoke enemy laugh event
     {
-        OnEnemyLaugh?.Invoke();
-    }
-
-    public static void InvokePlayerAttack()
-    {
-        OnPlayerAttack?.Invoke();
+        OnEnemyLaugh?.Invoke();     // invoke event
     }
 
-    public static void InvokeTeleportPlayer()
+    public static void InvokePlayerAttack() // invoke player attack event
     {
-        OnTeleportPlayer?.Invoke();
+        OnPlayerAttack?.Invoke(); // invoke event
+    }
+
+    public static void InvokeTeleportPlayer() // invoke teleport player event
+    {
+        OnTeleportPlayer?.Invoke(); // invoke event
     }
 }
