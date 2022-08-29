@@ -22,6 +22,15 @@ public class DataGeneral : MonoBehaviour
         {
             PlayerPrefs.SetInt("GameQuality", 3);
         }
+        
+        if(PlayerPrefs.HasKey("Languages"))
+        {
+            Languages = (byte)PlayerPrefs.GetInt("Languages");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Languages", 0);
+        }
     }
     
     public void Start()
