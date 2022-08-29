@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Chinese (Simplified) (zh)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Chinese (Simplified) (zh)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7c367b20d9730884ab8e1d1704b2b41f
+  m_SerializeEntries:
+  - m_GUID: ff6dca3cf0e90af47a208b9a14082cc0
+    m_Address: BTNControl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 75d7dd18e67fdcc4fb47e431b4e99f43
+    m_Address: BTNCredit 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 49303163454e85f40b8599b292e92f98
+    m_Address: BTNPlay 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 5189660acca2c7a46bb4bda74ad662d1
+    m_Address: BTNQuitl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: ab393ec846b6b2543ba4ddbafd53ebf2
+    m_Address: BTNResetData 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 7fe53b208856637419f51f2ea7768276
+    m_Address: BTNReturnl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: ab9e898292e5c6e48afe854becc48e24
+    m_Address: BTNSettings 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: b73e38cba68ae6a458c75d572747a0ef
+    m_Address: Languages 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 2d08498ce10f0ac43aa64103210d6ca4
+    m_Address: QualitySettings 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: c022d64c22b66c441b3b2ea88f951b5d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 85f48253f3d876a41ba38907621952c1, type: 2}
+    - {fileID: 11400000, guid: c58f43b4cb98f914c86a6c787c16d3fe, type: 2}

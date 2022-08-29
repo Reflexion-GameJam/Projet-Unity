@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Sprite Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Sprite
+  m_TableCollectionNameGuidString: aca1cdbe454fb084e9868e0da8710e0d
+  m_Entries:
+  - m_Id: 243619323904
+    m_Key: "Contr\xF4les"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359382114304
+    m_Key: "Cr\xE9dit"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 241908047872
+    m_Key: Jouer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 537757474816
+    m_Key: Langue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 315258036224
+    m_Key: "Param\xE8tre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 566610092032
+    m_Key: "Qualit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 276305534976
+    m_Key: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391426596864
+    m_Key: ResetData
+    m_Metadata:
+      m_Items: []
+  - m_Id: 491485913088
+    m_Key: Retour
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items:
+    - id: 0
+  m_KeyGenerator:
+    id: 1
+  references:
+    version: 1
+    00000000:
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 243619323904
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 359382114304
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 241908047872
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 537757474816
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 566610092032
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 315258036224
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 276305534976
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 391426596864
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 491485913088
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        m_TypeString: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    00000001:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1661774260424

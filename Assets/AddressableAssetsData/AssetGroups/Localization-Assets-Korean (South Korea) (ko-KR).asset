@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Korean (South Korea) (ko-KR)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Korean (South Korea) (ko-KR)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: fc1712ffb14eae6488fc552f226314dc
+  m_SerializeEntries:
+  - m_GUID: 2871ccc65b4ce9648ae41ddfbb1b2cab
+    m_Address: BTNControl 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: dcc794f378796464f94bdd1725324df9
+    m_Address: BTNCredit 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: 8142595c4a508614fb4b5d7e3ea8b77e
+    m_Address: BTNPlay 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: 5b861ebea331b054197f2638482ec67d
+    m_Address: BTNQuitl 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: f5419de93263301498e42f37956cf929
+    m_Address: BTNResetData 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: e9a371d3fea832e46b86f7db7f4227c3
+    m_Address: BTNReturnl 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: e070356a64ae8b8448112cd8bad82f8d
+    m_Address: BTNSettings 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: f3b7ad6d649d5774ba345df2326c7355
+    m_Address: Languages 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  - m_GUID: e7d06c384a3d702408cc73dc5277ae2d
+    m_Address: QualitySettings 7
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ko-KR
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: c022d64c22b66c441b3b2ea88f951b5d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4f5de76096f619b41ad2f19207ff36a4, type: 2}
+    - {fileID: 11400000, guid: 4653298df621fb045a3ae4d64326ce36, type: 2}

@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-English (en)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-English (en)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 46f9782f1bea5cd419265b49f43397e5
+  m_SerializeEntries:
+  - m_GUID: 47e7ea2b17268134494d68ead0ee871e
+    m_Address: BTNControl 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: dec62eab3be700d47a3aa57eb7f10b7b
+    m_Address: BTNCredit 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 5753a0f41e836e24aac050b03defd67c
+    m_Address: BTNPlay 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 8fead4e9af996bc468e3b0d06913676e
+    m_Address: BTNQuitl 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: e9e24de2e44c64d4596ad35d67adc891
+    m_Address: BTNResetData 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 4260e428e7c08ed4cb2c5fed199b6eb5
+    m_Address: BTNReturnl 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 0416828d5e0754c49812694ee15bde55
+    m_Address: BTNSettings 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 46b680dc72c00f340b3bf0bf97a86680
+    m_Address: Languages 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  - m_GUID: 27a6866250bd4854fb30e4dcd345e4da
+    m_Address: QualitySettings 1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: c022d64c22b66c441b3b2ea88f951b5d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: cffcef593fe09f7458f36161e2def2a7, type: 2}
+    - {fileID: 11400000, guid: f9bdf09d04b60b947846a53941daa6c3, type: 2}

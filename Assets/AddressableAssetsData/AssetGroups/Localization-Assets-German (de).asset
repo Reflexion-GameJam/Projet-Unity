@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-German (de)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-German (de)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3593b7445ed33ba46b10d0bb89684b52
+  m_SerializeEntries:
+  - m_GUID: 462cc275976b50a458f854376a9ff2e4
+    m_Address: BTNControl 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: 8bc022c4e1c3bbe4bb47e29c7b9e3816
+    m_Address: BTNCredit 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: ff0bea21f57be714783c1b322632f7d1
+    m_Address: BTNPlay 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: 7cfad08798614be499749c1e9edb807e
+    m_Address: BTNQuitl 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: dfbee7ef655d7db4e92237f6083203e8
+    m_Address: BTNResetData 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: fcd185af364fff74fa64421e56b22f47
+    m_Address: BTNReturnl 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: bac2146d6dda3eb43a1170c570463456
+    m_Address: BTNSettings 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: a24c5496ab7dbe1498dc94e04d8d7587
+    m_Address: Languages 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  - m_GUID: 54cd5e9f1c54c2145bed2025168b102d
+    m_Address: QualitySettings 3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-de
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: c022d64c22b66c441b3b2ea88f951b5d, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f24ec77307ec09144a789d391bc0bfce, type: 2}
+    - {fileID: 11400000, guid: 1b07e17121a345a4caa2f18d4bb6f648, type: 2}
