@@ -65,11 +65,11 @@ public class PlayerController : MonoBehaviour
             return; // Exit the function
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) // If the player press the left shift key
+        if (Input.GetButtonDown("Run")) // If the player press the left shift key
         {
             currentSpeed = maxSpeed; // Set the current speed of the player to the maximum speed 
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift)) //  If the player release the left shift key
+        else if (Input.GetButtonUp("Run")) //  If the player release the left shift key
         {
             currentSpeed = minSpeed; // Set the current speed of the player to the minimum speed
         }
