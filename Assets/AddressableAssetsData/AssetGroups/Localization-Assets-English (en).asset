@@ -17,48 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 46f9782f1bea5cd419265b49f43397e5
   m_SerializeEntries:
-  - m_GUID: 47e7ea2b17268134494d68ead0ee871e
-    m_Address: BTNControl 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: dec62eab3be700d47a3aa57eb7f10b7b
-    m_Address: BTNCredit 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: 5753a0f41e836e24aac050b03defd67c
-    m_Address: BTNPlay 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: 8fead4e9af996bc468e3b0d06913676e
-    m_Address: BTNQuitl 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: e9e24de2e44c64d4596ad35d67adc891
-    m_Address: BTNResetData 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: 4260e428e7c08ed4cb2c5fed199b6eb5
-    m_Address: BTNReturnl 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: 0416828d5e0754c49812694ee15bde55
-    m_Address: BTNSettings 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
   - m_GUID: 46b680dc72c00f340b3bf0bf97a86680
     m_Address: Languages 1
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-  - m_GUID: 27a6866250bd4854fb30e4dcd345e4da
-    m_Address: QualitySettings 1
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

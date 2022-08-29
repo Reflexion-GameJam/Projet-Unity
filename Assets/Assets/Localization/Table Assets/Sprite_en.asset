@@ -18,40 +18,8 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 243619323904
-    m_Localized: 47e7ea2b17268134494d68ead0ee871e
-    m_Metadata:
-      m_Items: []
-  - m_Id: 359382114304
-    m_Localized: dec62eab3be700d47a3aa57eb7f10b7b
-    m_Metadata:
-      m_Items: []
-  - m_Id: 241908047872
-    m_Localized: 5753a0f41e836e24aac050b03defd67c
-    m_Metadata:
-      m_Items: []
-  - m_Id: 276305534976
-    m_Localized: 8fead4e9af996bc468e3b0d06913676e
-    m_Metadata:
-      m_Items: []
-  - m_Id: 391426596864
-    m_Localized: e9e24de2e44c64d4596ad35d67adc891
-    m_Metadata:
-      m_Items: []
-  - m_Id: 491485913088
-    m_Localized: 4260e428e7c08ed4cb2c5fed199b6eb5
-    m_Metadata:
-      m_Items: []
-  - m_Id: 315258036224
-    m_Localized: 0416828d5e0754c49812694ee15bde55
-    m_Metadata:
-      m_Items: []
-  - m_Id: 537757474816
+  - m_Id: 29666955485184
     m_Localized: 46b680dc72c00f340b3bf0bf97a86680
-    m_Metadata:
-      m_Items: []
-  - m_Id: 566610092032
-    m_Localized: 27a6866250bd4854fb30e4dcd345e4da
     m_Metadata:
       m_Items: []
   references:

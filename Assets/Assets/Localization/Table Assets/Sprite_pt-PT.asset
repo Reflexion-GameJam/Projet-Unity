@@ -18,40 +18,8 @@ MonoBehaviour:
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 243619323904
-    m_Localized: c607d3624ae585646851e2eae4b7e975
-    m_Metadata:
-      m_Items: []
-  - m_Id: 359382114304
-    m_Localized: ef1d99aeb667d1247ba79c938bb65b8e
-    m_Metadata:
-      m_Items: []
-  - m_Id: 241908047872
-    m_Localized: 9b93173e2b9f2be48ac2e1e6e67dea6f
-    m_Metadata:
-      m_Items: []
-  - m_Id: 276305534976
-    m_Localized: 96c4d8bf0d184214293902f74eabd8cd
-    m_Metadata:
-      m_Items: []
-  - m_Id: 391426596864
-    m_Localized: 3e5f256d5ffb1f34b95982b02c5bc170
-    m_Metadata:
-      m_Items: []
-  - m_Id: 491485913088
-    m_Localized: dae148259a643be4585195fc8bcdf33d
-    m_Metadata:
-      m_Items: []
-  - m_Id: 315258036224
-    m_Localized: 89509f48e9ceff84e8d967d416f02fe9
-    m_Metadata:
-      m_Items: []
-  - m_Id: 537757474816
+  - m_Id: 29666955485184
     m_Localized: a0d09a71331edde42bd6eeafd932cb47
-    m_Metadata:
-      m_Items: []
-  - m_Id: 566610092032
-    m_Localized: a80c92c73a8bdac42987586df4e665f6
     m_Metadata:
       m_Items: []
   references:

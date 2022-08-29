@@ -10237,9 +10237,9 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:aca1cdbe454fb084e9868e0da8710e0d
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 29666955485184
       m_Key: 
-    m_FallbackState: 0
+    m_FallbackState: 2
     m_WaitForCompletion: 0
   m_UpdateAsset:
     m_PersistentCalls:
