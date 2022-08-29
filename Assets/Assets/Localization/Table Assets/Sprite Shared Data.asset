@@ -19,6 +19,42 @@ MonoBehaviour:
     m_Key: Language
     m_Metadata:
       m_Items: []
+  - m_Id: 53329037615104
+    m_Key: Jouer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53672131682304
+    m_Key: "Contr\xF4le"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 57279115681792
+    m_Key: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58499607814144
+    m_Key: "Param\xE8tre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58888465932288
+    m_Key: Credit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59132175966208
+    m_Key: Retour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59417719988224
+    m_Key: Qualiter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65944388362240
+    m_Key: Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 71197640876032
+    m_Key: ConfigControls
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - id: 0
@@ -31,6 +67,105 @@ MonoBehaviour:
       data:
         m_Entries:
         - m_KeyId: 29666955485184
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 53329037615104
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 53672131682304
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 57279115681792
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 58499607814144
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 58888465932288
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 59132175966208
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 59417719988224
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 65944388362240
+          m_TableCodes:
+          - fr-FR
+          - en
+          - es-ES
+          - de
+          - pt-PT
+          - ja-JP
+          - zh
+          - ko-KR
+          - ru-RU
+        - m_KeyId: 71197640876032
           m_TableCodes:
           - fr-FR
           - en

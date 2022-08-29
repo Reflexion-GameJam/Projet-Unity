@@ -22,6 +22,51 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh
+  - m_GUID: 49303163454e85f40b8599b292e92f98
+    m_Address: BTNPlay 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: ff6dca3cf0e90af47a208b9a14082cc0
+    m_Address: BTNControl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 5189660acca2c7a46bb4bda74ad662d1
+    m_Address: BTNQuitl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: ab9e898292e5c6e48afe854becc48e24
+    m_Address: BTNSettings 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 75d7dd18e67fdcc4fb47e431b4e99f43
+    m_Address: BTNCredit 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 7fe53b208856637419f51f2ea7768276
+    m_Address: BTNReturnl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 2d08498ce10f0ac43aa64103210d6ca4
+    m_Address: QualitySettings 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: ab393ec846b6b2543ba4ddbafd53ebf2
+    m_Address: BTNResetData 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+  - m_GUID: 40965aa92a123f34d9b204a190361744
+    m_Address: ImgPresentControl 6
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c022d64c22b66c441b3b2ea88f951b5d, type: 2}
   m_SchemaSet:

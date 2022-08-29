@@ -22,6 +22,51 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru-RU
+  - m_GUID: cffbfb0865837884ca1b075ddf0553c3
+    m_Address: BTNPlay 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: f2276047bc6199f4791c47b126291c60
+    m_Address: BTNControl 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: abde02e7c89d3b047957df6b9aafddf8
+    m_Address: BTNQuitl 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: df2242d67ca35e442af40fc794a1dfdd
+    m_Address: BTNSettings 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: 4866035a01dfd4845b0f72654c8f4aee
+    m_Address: BTNCredit 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: 458bdced4fbe79142ac1531f201ef128
+    m_Address: BTNReturnl 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: 935b96f9dadf7ec498e762d700b9a81a
+    m_Address: QualitySettings 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: aff0d25d779915a44a033c6518e32ea8
+    m_Address: BTNResetData 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
+  - m_GUID: df8c32c37dc24c2438370b5ef6fdfdc0
+    m_Address: ImgPresentControl 8
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru-RU
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: c022d64c22b66c441b3b2ea88f951b5d, type: 2}
   m_SchemaSet:

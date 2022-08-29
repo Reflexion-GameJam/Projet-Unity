@@ -14,7 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: Text
   m_TableCollectionNameGuidString: 561940e4351fc2148936265c719dbcc2
-  m_Entries: []
+  m_Entries:
+  - m_Id: 71771274862592
+    m_Key: Dev
+    m_Metadata:
+      m_Items: []
+  - m_Id: 72804747173888
+    m_Key: DA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73314199920640
+    m_Key: SD
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75109244592128
+    m_Key: InteractionText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78168037253120
+    m_Key: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 78614734823424
+    m_Key: Retour au menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 81826355339264
+    m_Key: Fin
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
